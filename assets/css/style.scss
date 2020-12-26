@@ -1,2 +1,65 @@
+/* 1remを10pxに設定 */
+html { 
+    font-size: 62.5%;
+}
+//------------------------flex boxのmixin------------------------
+@mixin flex () {
+    display: flex;
+}
+@mixin direction ($direction: row) {
+    flex-direction: $direction;
+}
+@mixin align ($align: flex-start) {
+    align-items: $align;
+}
+@mixin justify ($justify: flex-start) {
+    justify-content: $justify;
+}
+//------------------------プレースホルダーセレクター------------------------
+// %button {
 
+// }
+/*------------------------all------------------------*/
+.all {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Racing Sans One', cursive;
+    color: white;
+    background: url("../img/train.jpg") no-repeat;
+    background-size: cover;
+    background-position: 27%;
+        &__left {
+            width: 40vw;
+            @include flex
+            @include direction(column)
+            @include align (flex-start)
+            @include justify (center)
+        }
+}
+/*------------------------header------------------------*/
+.header {
+    &__link {
+        color: white;
+        font-size: 4rem;
+        text-decoration: none;
+    }
+}
+
+
+.footer {
+    width: 100%;
+    @include flex
+    @include direction(row)
+    @include align (flex-end)
+    @include justify (center)
+    &__text {
+        color: white;
+        font-size: 1.5rem;
+        letter-spacing: 0.1rem;
+    }
+}
+/*------------------------header------------------------*/
+.header {
+    
+}
 

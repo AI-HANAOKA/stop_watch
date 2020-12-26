@@ -1,1 +1,66 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+@charset "UTF-8";
+/* 1remを10pxに設定 */
+html {
+  font-size: 62.5%;
+}
+
+/*------------------------all------------------------*/
+.all {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Racing Sans One', cursive;
+  color: white;
+  background: url("../img/train.jpg") no-repeat;
+  background-size: cover;
+  background-position: 27%;
+}
+
+.all__left {
+  width: 40vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/*------------------------header------------------------*/
+.header__link {
+  color: white;
+  font-size: 4rem;
+  text-decoration: none;
+}
+
+.footer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.footer__text {
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+}
+
+/*------------------------header------------------------*/
+/*# sourceMappingURL=style.css.map */
