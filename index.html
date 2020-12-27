@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STOP WATCH</title>
+    <link rel="shortcut icon" href="./stop_watch.ico" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
@@ -13,30 +14,35 @@
 </head>
 <body>
     <div class="all">
-        <div class="all__left">
+        <div class="all__top">
             <header class="header">
-                <h1 class="header__title"><a href="./index.html" class="header__link">STOP WATCH</a></h1>
-                <!-- <img src="" alt="時計"> -->
+                <h1 class="header__title">
+                    <a href="./index.html" class="header__link">ST<img src="./assets/img/stop_watch.png" alt="時計ロゴ" class="header__logo">P<br class="sp"><span class="sp__margin">WATCH</span>
+                    </a>
+                </h1>
             </header>
-
             <main class="main">
-                <section class="count">
-                    <div class="count__timer">
-                        <p id="count--time">00:00.000</p>
-                    </div>
-                    <div class="count__button">
-                        <p id="count__start">START</p>
-                        <p id="count__stop">STOP</p>
-                        <p id="count__reset">RESET</p>
-                    </div>
-                </section>
+                    <section class="count">
+                        <div class="count__timer">
+                            <p class="count--time" id="time">00:00.000</p>
+                        </div>
+                        <div class="count__button">
+                            <div class="count__buttonTop">
+                                <p class="count__start" id="start">START</p>
+                                <p class="count__stop" id="stop">STOP</p>
+                            </div>
+                            <div class="count__buttonBottm">
+                                <p class="count__reset" id="reset">RESET</p>
+                            </div>
+                        </div>
+                    </section>
             </main>
+            <footer class="footer">
+                <p class="footer__text">© 2020 A.Hanaoka. All rights reserved.
+                </p>
+            </footer>
         </div>
 
-        <footer class="footer">
-            <p class="footer__text">© 2020 A.Hanaoka. All rights reserved.
-            </p>
-        </footer>
     </div>
 
     <script src="./main.js"></script>
