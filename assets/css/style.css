@@ -61,7 +61,7 @@ html {
 .all__top {
   width: clamp(100vw, 80vw, 70rem);
   height: 100%;
-  padding: 50px 0px;
+  padding-top: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -174,7 +174,7 @@ html {
 
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .count {
-    padding: 20px 0 25px;
+    padding: 15px 0;
   }
 }
 
@@ -197,13 +197,13 @@ html {
   letter-spacing: 0.2rem;
   text-align: center;
   background-color: rgba(133, 98, 81, 0.466);
-  padding: 20px 0px;
+  padding: 15px 0px;
   margin: 0px 0px 40px;
 }
 
 @media screen and (min-width: 481px) {
   .count--time {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 }
 
@@ -420,11 +420,12 @@ html {
   font-size: clamp(12px, 2vw, 18px);
   letter-spacing: 0.1rem;
   text-align: center;
+  padding-bottom: 15px;
 }
 
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .footer__text {
-    padding-bottom: 10px;
+    padding-bottom: 0px;
   }
 }
 /*# sourceMappingURL=style.css.map */
