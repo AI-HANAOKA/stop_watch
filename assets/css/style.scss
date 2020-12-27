@@ -1,65 +1,302 @@
 /* 1remを10pxに設定 */
-html { 
+html {
     font-size: 62.5%;
 }
+
 //------------------------flex boxのmixin------------------------
 @mixin flex () {
     display: flex;
 }
+
 @mixin direction ($direction: row) {
     flex-direction: $direction;
 }
+
 @mixin align ($align: flex-start) {
     align-items: $align;
 }
+
 @mixin justify ($justify: flex-start) {
     justify-content: $justify;
 }
-//------------------------プレースホルダーセレクター------------------------
-// %button {
 
-// }
+//------------------------プレースホルダーセレクター------------------------
+%line {
+    line-height: 1.2;
+}
+
+/*------------------------pc非表示------------------------*/
+.sp {
+    @media screen and (min-width: 481px) and (max-width: 767px) {
+        display: none;
+    }
+
+    @media screen and (min-width:768px) {
+        display: none;
+    }
+}
+
 /*------------------------all------------------------*/
 .all {
     width: 100vw;
     height: 100vh;
     font-family: 'Racing Sans One', cursive;
     color: white;
+    letter-spacing: 0.1rem;
     background: url("../img/train.jpg") no-repeat;
     background-size: cover;
     background-position: 27%;
-        &__left {
-            width: 40vw;
+    @include flex 
+    @include direction(column) 
+    @include align (flex-start) 
+    @include justify (space-between) 
+    @media screen and (min-width: 481px) and (max-width: 767px) {
+        background-position: left 20%;
+    }
+    @media screen and (min-width:768px) {
+        background-position: left;
+    }
+
+    &__top {
+        width: clamp(100vw, 80vw, 70rem);
+        height: 100%;
+        padding: 50px 0px;
+        @include flex 
+        @include direction(column)
+        @include align (flex-start)
+        @include justify (space-between) 
+        @media screen and (min-width: 481px) and (max-width: 767px) {
+            height: 100vh;
+            padding: 0px;
             @include flex
             @include direction(column)
             @include align (flex-start)
-            @include justify (center)
+            @include justify (space-around)
         }
-}
-/*------------------------header------------------------*/
-.header {
-    &__link {
-        color: white;
-        font-size: 4rem;
-        text-decoration: none;
+        @media screen and (min-width:768px) {
+            height: 100vh;
+            @include flex
+            @include direction(column)
+            @include align (flex-start)
+            @include justify (space-between)
+        }
     }
 }
 
+/*------------------------header------------------------*/
+.header {
+    &__title {
+        @media screen and (min-width: 481px) and (max-width: 767px) {
+            padding-top: 10px;
+        }
+    }
+
+    &__link {
+        color: white;
+        font-size: clamp(50px, 9vw, 100px);
+        text-decoration: none;
+        padding-left: 25px;
+    }
+
+    &__logo {
+        width: clamp(36px, 6.5vw, 70px);
+    }
+
+    .sp {
+        &__margin {
+            margin-left: 40px;
+            @media screen and (min-width: 481px) and (max-width: 767px) {
+                margin-left: 15px;
+            }
+            @media screen and (min-width:768px) {
+                margin-left: 15px;
+            }
+        }
+    }
+}
+
+/*------------------------main------------------------*/
+.main {
+    width: 100%;
+}
+
+/*------------------------count------------------------*/
+.count {
+    width: 100vw;
+    @include flex
+    @include direction(column)
+    @include align (center)
+    @include justify (center) 
+    @media screen and (min-width: 481px) and (max-width: 767px) {
+        padding: 20px 0 25px;
+    }
+
+    &__timer {
+        width: 100vw;
+        @include flex
+        @include align (center)
+        @include justify (center)
+    }
+
+    &--time {
+        width: 100vw;
+        font-size: clamp(45px, 10vw, 120px);
+        letter-spacing: 0.2rem;
+        text-align: center;
+        background-color: rgba(133, 98, 81, 0.466);
+        padding: 20px 0px;
+        margin: 0px 0px 40px;
+        @media screen and (min-width: 481px) {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__button {
+        width: 100vw;
+        font-size: clamp(30px, 6vw, 50px);
+        @include flex 
+        @include direction(column) 
+        @include align (center) 
+        @include justify (center) 
+        @media screen and (min-width: 481px) {
+            @include flex 
+            @include direction(row) 
+            @include align (center) 
+            @include justify (center)
+        }
+    }
+
+    &__buttonTop {
+        width: 100vw;
+        padding-bottom: 30px;
+        @include flex 
+        @include direction(row) 
+        @include align (center) 
+        @include justify (space-around)
+        @media screen and (min-width: 481px) {
+            width: ceil(100vw / 3 * 2);
+            padding-bottom: 0px;
+            @include flex 
+            @include direction(row) 
+            @include align (center) 
+            @include justify (space-around)
+        }
+    }
+
+    &__start {
+        position: relative;
+        @extend %line;
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 70%;
+            height: 100%;
+            border-bottom: 2px dashed white;
+            left: -10%;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 60%;
+            height: 100%;
+            border-bottom: 2px solid white;
+            left: 55%;
+        }
+    }
+
+    &__stop {
+        position: relative;
+        @extend %line;
+        @media screen and (min-width: 481px) {
+            margin-left: 15px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 70%;
+            height: 100%;
+            border-bottom: 2px solid white;
+            right: 55%;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 60%;
+            height: 100%;
+            border-bottom: 2px dashed white;
+            right: -8%;
+        }
+    }
+
+    &__buttonBottm {
+        width: 100vw;
+        @include flex 
+        @include direction(row) 
+        @include align (center)
+        @include justify (center) 
+        @media screen and (min-width: 481px) {
+            width: ceil(100vw / 3);
+            @include flex 
+            @include direction(row) 
+            @include align (center) 
+            @include justify (space-around)
+        }
+    }
+
+    &__reset {
+        position: relative;
+        display: inline-block;
+        @extend %line;
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 120%;
+            height: 100%;
+            border-bottom: 2px dashed white;
+            left: -10%;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 45%;
+            height: 100%;
+            border-bottom: 2px solid white;
+            left: 27%;
+        }
+    }
+}
+.inactive {
+    opacity: 0.6;
+}
+
+/*------------------------footer------------------------*/
 
 .footer {
     width: 100%;
-    @include flex
-    @include direction(row)
+
+    @include flex 
+    @include direction(row) 
     @include align (flex-end)
-    @include justify (center)
+    @include justify (center) 
     &__text {
         color: white;
-        font-size: 1.5rem;
+        font-size: clamp(12px, 2vw, 18px);
         letter-spacing: 0.1rem;
+        text-align: center;
+        @media screen and (min-width: 481px) and (max-width: 767px) {
+            padding-bottom: 10px;
+        }
     }
 }
-/*------------------------header------------------------*/
-.header {
-    
-}
-
