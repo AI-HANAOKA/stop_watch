@@ -24,18 +24,6 @@ html {
 %line {
     line-height: 1.2;
 }
-
-/*------------------------pc非表示------------------------*/
-.sp {
-    @media screen and (min-width: 481px) and (max-width: 767px) {
-        display: none;
-    }
-
-    @media screen and (min-width:768px) {
-        display: none;
-    }
-}
-
 /*------------------------all------------------------*/
 .all {
     width: 100vw;
@@ -43,9 +31,9 @@ html {
     font-family: 'Racing Sans One', cursive;
     color: white;
     letter-spacing: 0.1rem;
-    background: url("../img/train.jpg") no-repeat;
+    background: url("../img/clock-4856825_1920.jpg") no-repeat;
     background-size: cover;
-    background-position: 27%;
+    background-position: center;
     @include flex 
     @include direction(column) 
     @include align (flex-start) 
@@ -60,7 +48,6 @@ html {
     &__top {
         width: clamp(100vw, 80vw, 70rem);
         height: 100%;
-        padding: 25px 0px;
         @include flex 
         @include direction(column)
         @include align (flex-start)
@@ -85,70 +72,48 @@ html {
 
 /*------------------------header------------------------*/
 .header {
+    padding: 20px 0 0 15px;
+    @include flex
+    @include direction(column)
+    @include align (flex-start)
+    @include justify (center)
     &__title {
+        padding-bottom: 5px;
         @media screen and (min-width: 481px) and (max-width: 767px) {
             padding-top: 10px;
         }
     }
-
     &__link {
         color: white;
-        font-size: clamp(50px, 9vw, 100px);
+        font-size: clamp(20px, 3vw, 30px);
         text-decoration: none;
-        padding-left: 25px;
     }
-    .animaton {
-        animation: opacity ease-in 2.8s;
-        @keyframes opacity{
-            0% {opacity: 0;}
-            85% {opacity: 0;}
-            100% {opacity: 1;}
-        }
-    }
-
     &__logo {
-        width: clamp(36px, 6.5vw, 70px);
-        animation: rotation 2s;
-        @keyframes rotation {
-            0% {transform: rotate(0deg); 
-                width: clamp(100px, 10vw, 150px);
-                margin: 115px 0 0; }
-            30% {transform: rotate(360deg); 
-                width: clamp(100px, 10vw, 150px);
-                margin: 115px 0 0;}
-            40% {transform: rotate(360deg); 
-                width: clamp(100px, 10vw, 150px);
-                margin: 115px 0 0;}
-            60% {transform: rotate(0deg); 
-                width: clamp(100px, 10vw, 150px);
-                margin: 105px 0 0;}
-            90% {transform: rotate(0deg);}
-            100% {transform: rotate(0deg);}
-        }
+        width: clamp(14px, 2.5vw, 22px);
     }
-
-    .sp {
-        &__margin {
-            margin-left: 40px;
-            @media screen and (min-width: 481px) and (max-width: 767px) {
-                margin-left: 15px;
-            }
-            @media screen and (min-width:768px) {
-                margin-left: 15px;
-            }
-        }
+    &__game-title {
+        @include flex
+        @include direction(row)
+        @include align (center)
+        @include justify (center)
+    }
+    &__10Logo {
+        width: clamp(70px, 10vw, 130px);
+        background-color: rgba(185, 63, 216, 0.671);
+        border: 1.5px solid white;
+        border-radius: 50%;
+    }
+    &__gameCount {
+        font-size: clamp(20px, 4vw, 35px);
+    }
+    &__gameGame {
+        font-size: clamp(20px, 4vw, 35px);
     }
 }
 
 /*------------------------main------------------------*/
 .main {
     width: 100%;
-    animation: opacity ease-in 2.8s;
-    @keyframes opacity{
-        0% {opacity: 0;}
-        85% {opacity: 0;}
-        100% {opacity: 1;}
-    }
 }
 
 /*------------------------count------------------------*/
@@ -311,17 +276,10 @@ html {
 .inactive {
     opacity: 0.6;
 }
-
 /*------------------------footer------------------------*/
 
 .footer {
     width: 100%;
-    animation: opacity2 ease-in 2.5s;
-    @keyframes opacity2{
-        0% {opacity: 0;}
-        73% {opacity: 0;}
-        100% {opacity: 1;}
-    }
     @include flex 
     @include direction(row) 
     @include align (flex-end)

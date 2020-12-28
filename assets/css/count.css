@@ -8,19 +8,6 @@ html {
   line-height: 1.2;
 }
 
-/*------------------------pc非表示------------------------*/
-@media screen and (min-width: 481px) and (max-width: 767px) {
-  .sp {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .sp {
-    display: none;
-  }
-}
-
 /*------------------------all------------------------*/
 .all {
   width: 100vw;
@@ -28,9 +15,9 @@ html {
   font-family: 'Racing Sans One', cursive;
   color: white;
   letter-spacing: 0.1rem;
-  background: url("../img/train.jpg") no-repeat;
+  background: url("../img/clock-4856825_1920.jpg") no-repeat;
   background-size: cover;
-  background-position: 27%;
+  background-position: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -61,7 +48,6 @@ html {
 .all__top {
   width: clamp(100vw, 80vw, 70rem);
   height: 100%;
-  padding: 25px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -116,6 +102,27 @@ html {
 }
 
 /*------------------------header------------------------*/
+.header {
+  padding: 20px 0 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header__title {
+  padding-bottom: 5px;
+}
+
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .header__title {
     padding-top: 10px;
@@ -124,149 +131,48 @@ html {
 
 .header__link {
   color: white;
-  font-size: clamp(50px, 9vw, 100px);
+  font-size: clamp(20px, 3vw, 30px);
   text-decoration: none;
-  padding-left: 25px;
-}
-
-.header .animaton {
-  -webkit-animation: opacity ease-in 2.8s;
-          animation: opacity ease-in 2.8s;
-}
-
-@-webkit-keyframes opacity {
-  0% {
-    opacity: 0;
-  }
-  85% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes opacity {
-  0% {
-    opacity: 0;
-  }
-  85% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 .header__logo {
-  width: clamp(36px, 6.5vw, 70px);
-  -webkit-animation: rotation 2s;
-          animation: rotation 2s;
+  width: clamp(14px, 2.5vw, 22px);
 }
 
-@-webkit-keyframes rotation {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    width: clamp(100px, 10vw, 150px);
-    margin: 115px 0 0;
-  }
-  30% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-    width: clamp(100px, 10vw, 150px);
-    margin: 115px 0 0;
-  }
-  40% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-    width: clamp(100px, 10vw, 150px);
-    margin: 115px 0 0;
-  }
-  60% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    width: clamp(100px, 10vw, 150px);
-    margin: 105px 0 0;
-  }
-  90% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
+.header__game-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-@keyframes rotation {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    width: clamp(100px, 10vw, 150px);
-    margin: 115px 0 0;
-  }
-  30% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-    width: clamp(100px, 10vw, 150px);
-    margin: 115px 0 0;
-  }
-  40% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-    width: clamp(100px, 10vw, 150px);
-    margin: 115px 0 0;
-  }
-  60% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    width: clamp(100px, 10vw, 150px);
-    margin: 105px 0 0;
-  }
-  90% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
+.header__10Logo {
+  width: clamp(70px, 10vw, 130px);
+  background-color: rgba(185, 63, 216, 0.671);
+  border: 1.5px solid white;
+  border-radius: 50%;
 }
 
-.header .sp__margin {
-  margin-left: 40px;
+.header__gameCount {
+  font-size: clamp(20px, 4vw, 35px);
 }
 
-@media screen and (min-width: 481px) and (max-width: 767px) {
-  .header .sp__margin {
-    margin-left: 15px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .header .sp__margin {
-    margin-left: 15px;
-  }
+.header__gameGame {
+  font-size: clamp(20px, 4vw, 35px);
 }
 
 /*------------------------main------------------------*/
 .main {
   width: 100%;
-  -webkit-animation: opacity ease-in 2.8s;
-          animation: opacity ease-in 2.8s;
-}
-
-@keyframes opacity {
-  0% {
-    opacity: 0;
-  }
-  85% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 /*------------------------count------------------------*/
@@ -515,8 +421,6 @@ html {
 /*------------------------footer------------------------*/
 .footer {
   width: 100%;
-  -webkit-animation: opacity2 ease-in 2.5s;
-          animation: opacity2 ease-in 2.5s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -532,30 +436,6 @@ html {
           justify-content: center;
 }
 
-@-webkit-keyframes opacity2 {
-  0% {
-    opacity: 0;
-  }
-  73% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes opacity2 {
-  0% {
-    opacity: 0;
-  }
-  73% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .footer__text {
   color: white;
   font-size: clamp(12px, 2vw, 18px);
@@ -568,4 +448,4 @@ html {
     padding-bottom: 0px;
   }
 }
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=count.css.map */
