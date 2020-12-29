@@ -2,6 +2,7 @@
 html {
     font-size: 62.5%;
 }
+$color :rgba(185, 63, 216, 0.671);
 
 //------------------------flex boxのmixin------------------------
 @mixin flex () {
@@ -24,6 +25,14 @@ html {
 %line {
     line-height: 1.2;
 }
+/*------------------------dispay none------------------------*/
+.sp {
+    display: none;
+    @media screen and (min-width: 481px)  {
+        display: inline;
+    }
+}
+
 /*------------------------all------------------------*/
 .all {
     width: 100vw;
@@ -36,239 +45,309 @@ html {
     background-position: center;
     @include flex 
     @include direction(column) 
-    @include align (flex-start) 
-    @include justify (space-between) 
-    @media screen and (min-width: 481px) and (max-width: 767px) {
-        background-position: left 20%;
+    @include align (center) 
+    @include justify (center)
+    &__mask {
+        height: 100vh;
+        background-color: rgba(100, 84, 126, 0.350);
+        @include flex 
+        @include direction(column) 
+        @include align (center) 
+        @include justify (center)
     }
-    @media screen and (min-width:768px) {
-        background-position: left;
-    }
-
     &__top {
         width: clamp(100vw, 80vw, 70rem);
-        height: 100%;
+        height: 100vh;
         @include flex 
         @include direction(column)
-        @include align (flex-start)
+        @include align (center)
         @include justify (space-between) 
-        @media screen and (min-width: 481px) and (max-width: 767px) {
+        @media screen and (min-width: 481px) {
+            width: 100vw;
             height: 100vh;
-            padding: 0px 0px;
+            padding: 0;
             @include flex
             @include direction(column)
-            @include align (flex-start)
+            @include align (center)
             @include justify (space-around)
-        }
-        @media screen and (min-width:768px) {
-            height: 100vh;
-            @include flex
-            @include direction(column)
-            @include align (flex-start)
-            @include justify (space-between)
         }
     }
 }
 
 /*------------------------header------------------------*/
 .header {
-    padding: 20px 0 0 15px;
+    width: 93vw;
+    padding-top: 15px;
     @include flex
-    @include direction(column)
+    @include direction(row)
     @include align (flex-start)
-    @include justify (center)
-    &__title {
-        padding-bottom: 5px;
+    @include justify (space-around)
+    @media screen and (min-width: 481px) {
+        width: 95vw;
+        padding-top: 0px;
+        @include flex
+        @include direction(row)
+        @include align (center)
+        @include justify (space-around)
+    }
+    @media screen and (min-width:768px) {
+        width: 95vw;
+        padding-top: 7px;
+        @include flex
+        @include direction(row)
+        @include align (flex-start)
+        @include justify (space-around)
+    }
+    // header logo
+    &__left{
+        width: ceil(95vw / 3 * 2.2);
+        // background-color: rgba(153, 205, 50, 0.418);
         @media screen and (min-width: 481px) and (max-width: 767px) {
-            padding-top: 10px;
+            @include flex
+            @include direction(row)
+            @include align (flex-end)
+            @include justify (flex-start)
+        }
+        @media screen and (min-width:768px) {
+            @include flex
+            @include direction(row)
+            @include align (flex-start)
+            @include justify (space-around)
+        }
+    }
+    &__title {
+        @media screen and (min-width: 481px)  {
+            padding-top: 0px;
         }
     }
     &__link {
         color: white;
-        font-size: clamp(20px, 3vw, 30px);
+        font-size: clamp(27px, 5vw, 60px);
         text-decoration: none;
     }
     &__logo {
-        width: clamp(14px, 2.5vw, 22px);
+        width: clamp(19px, 3.7vw, 43px);
     }
-    &__game-title {
+    .sp {
+        &__margin {
+            @media screen and (min-width: 481px)  {
+                margin-left: 15px;
+            }
+        }
+    }
+    // HOW TO PLAY
+    &__ruleBox {
+        width: clamp(165px, 31vw, 355px);
         @include flex
         @include direction(row)
         @include align (center)
         @include justify (center)
+        @media screen and (min-width: 481px)  {
+            @include flex
+            @include direction(row)
+            @include align (center)
+            @include justify (flex-start)
+        }
     }
+    &__rule {
+        font-size: clamp(18px, 3.5vw, 40px);
+        border-bottom: 1px solid white;
+        padding-top: 5px;
+        @media screen and (min-width:768px) {
+            padding-top: 15px;
+        }
+    }
+    .star {
+        font-size: clamp(14px, 2vw, 31px);
+        display: inline-block;
+        animation: star ease-in-out 10s infinite;
+        @keyframes star {
+            0% {transform: rotateY(0deg);}
+            30% {transform: rotateY(0deg);}
+            50% {transform: rotateY(360deg);}
+            70% {transform: rotateY(0deg);}
+            90% {transform: rotateY(0deg);}
+            100% {transform: rotateY(0deg);}
+        }
+        @media screen and (min-width:768px) {
+            padding-top: 15px;
+        }
+    }
+    // ranking
+    &__leftR {
+        width: clamp(165px, 39vw, 500px);
+        border-top: 3.5px double white;
+        border-bottom: 3.5px double white;
+        background-color: rgba(57, 45, 77, 0.35);
+        margin-top: 15px;
+        @include flex
+        @include direction(column)
+        @include align (center)
+        @include justify (center)
+        @media screen and (min-width: 481px) and (max-width: 767px) {
+            width: ceil(95vw / 3 * 1.4);
+            margin: 0px auto;
+            @include flex
+            @include direction(column)
+            @include align (center)
+            @include justify (center)
+        }
+        @media screen and (min-width:768px) {
+            padding: clamp(5px, 1vw, 15px);
+            margin-top: 0px;
+        }
+    }
+    &__scoraTitle {
+        font-size: clamp(17px, 3.2vw, 33px);
+        border-bottom: 1px solid white;
+        padding: 5px 0 3px;
+        margin-bottom: 5px;
+        @media screen and (min-width: 481px) and (max-width: 767px) {
+            margin-bottom: 2px;
+        }
+        @media screen and (min-width:768px) {
+            margin-bottom: clamp(3px, 0.5vw, 15px);
+        }
+    }
+    &__list {
+        font-size: clamp(16px, 2.5vw, 30px);
+        @include flex
+        @include direction(column)
+        @include align (flex-start)
+        @include justify (center)
+        @media screen and (min-width: 481px)  {
+            padding: 3px 0;
+            @include flex
+            @include direction(row)
+            @include align (flex-start)
+            @include justify (center)
+        }
+    }
+    &__listL,
+    &__listR {
+        @media screen and (min-width: 481px)  {
+            padding-left: clamp(2px, 1vw, 10px);
+            padding-right: clamp(2px, 1vw, 10px);
+        }
+    }
+    // ランキングアイコン プレースホルダー
+    %numicon {
+        background-size: clamp(16px, 2.7vw, 30px);
+        background-repeat: no-repeat;
+        /* スコアアイコンはpadding-leftで調整 */
+        padding-left: clamp(25px, 4vw, 50px);
+        @media screen and (min-width:768px) {
+            line-height: 1.2;
+        }
+    }
+    // --------------------------------
+    &__number1 {
+        background-image: url("../img/rank1.png");
+        @extend %numicon;
+    }
+    &__number2 {
+        background-image: url("../img/rank2.png");
+        @extend %numicon;
+    }
+    &__number3 {
+        background-image: url("../img/rank3.png");
+        @extend %numicon;
+    }
+    &__number4 {
+        font-size: clamp(14px, 2vw, 27px);
+        background-image: url("../img/rank4.png");
+        @extend %numicon;
+    }
+    &__number5 {
+        font-size: clamp(14px, 2vw, 27px);
+        background-image: url("../img/rank5.png");
+        padding-bottom: 5px;
+        @extend %numicon;
+        @media screen and (min-width: 481px)  {
+            padding-bottom: 0px;
+        }
+        @media screen and (min-width:768px) {
+            line-height: 0;
+        }
+    }
+    // 10count logo
     &__10Logo {
-        width: clamp(70px, 10vw, 130px);
-        background-color: rgba(185, 63, 216, 0.671);
-        border: 1.5px solid white;
+        width: clamp(80px, 13vw, 200px);
+        background-color: $color;
+        border: 1.5px solid yellow;
         border-radius: 50%;
-    }
-    &__gameCount {
-        font-size: clamp(20px, 4vw, 35px);
-    }
-    &__gameGame {
-        font-size: clamp(20px, 4vw, 35px);
+        margin-top: clamp(15px, 2vw, 40px);
+        margin-left: clamp(15px, 2vw, 40px);
+        @media screen and (min-width: 481px)  {
+            margin-top: 0px;
+        }
     }
 }
-
 /*------------------------main------------------------*/
 .main {
-    width: 100%;
+    width: 100vw;
 }
-
 /*------------------------count------------------------*/
 .count {
     width: 100vw;
     @include flex
     @include direction(column)
     @include align (center)
-    @include justify (center) 
+    @include justify (space-between) 
     @media screen and (min-width: 481px) and (max-width: 767px) {
-        padding: 10px 0 15px;
+        padding-top: 4px;
     }
-
     &__timer {
         width: 100vw;
+        padding-top: clamp(10px, 3vh, 60px);
+        padding-bottom: clamp(10px, 3vh, 60px);
         @include flex
         @include align (center)
         @include justify (center)
     }
-
     &--time {
         width: 100vw;
-        font-size: clamp(45px, 10vw, 120px);
+        font-size: clamp(47px, 9vw, 120px);
         letter-spacing: 0.2rem;
         text-align: center;
-        background-color: rgba(133, 98, 81, 0.466);
-        padding: 15px 0px;
-        margin: 0px 0px 40px;
-        @media screen and (min-width: 481px) {
-            margin-bottom: 15px;
+        background-color: $color;
+        padding-top: clamp(10px, 3vh, 60px);
+        padding-bottom: clamp(10px, 3vh, 60px);
+        // margin-bottom: clamp(10px, 5vw, 70px);
+        @media screen and (min-width: 481px) and (max-width: 767px) {
+            padding: 10px 0px;
+            margin: 0px;
+        }
+        @media screen and (min-width:768px) {
+            // margin-top: clamp(5px, 3vw, 15px);
         }
     }
-
     &__button {
-        width: 100vw;
-        font-size: clamp(30px, 6vw, 50px);
-        @include flex 
-        @include direction(column) 
-        @include align (center) 
-        @include justify (center) 
-        @media screen and (min-width: 481px) {
-            @include flex 
-            @include direction(row) 
-            @include align (center) 
-            @include justify (center)
-        }
-    }
-
-    &__buttonTop {
-        width: 100vw;
-        padding-bottom: 30px;
-        @include flex 
-        @include direction(row) 
-        @include align (center) 
-        @include justify (space-around)
-        @media screen and (min-width: 481px) {
-            width: ceil(100vw / 3 * 2);
-            padding-bottom: 0px;
-            @include flex 
-            @include direction(row) 
-            @include align (center) 
-            @include justify (space-around)
-        }
-    }
-
-    &__start {
-        position: relative;
-        @extend %line;
-
-        &::before {
-            content: '';
-            position: absolute;
-            display: inline-block;
-            width: 70%;
-            height: 100%;
-            border-bottom: 2px dashed white;
-            left: -10%;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            display: inline-block;
-            width: 60%;
-            height: 100%;
-            border-bottom: 2px solid white;
-            left: 55%;
-        }
-    }
-
-    &__stop {
-        position: relative;
-        @extend %line;
-        @media screen and (min-width: 481px) {
-            margin-left: 15px;
-        }
-
-        &::before {
-            content: '';
-            position: absolute;
-            display: inline-block;
-            width: 70%;
-            height: 100%;
-            border-bottom: 2px solid white;
-            right: 55%;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            display: inline-block;
-            width: 60%;
-            height: 100%;
-            border-bottom: 2px dashed white;
-            right: -8%;
-        }
-    }
-
-    &__buttonBottm {
-        width: 100vw;
-        @include flex 
-        @include direction(row) 
-        @include align (center)
-        @include justify (center) 
-        @media screen and (min-width: 481px) {
-            width: ceil(100vw / 3);
-            @include flex 
-            @include direction(row) 
-            @include align (center) 
-            @include justify (space-around)
-        }
-    }
-
-    &__reset {
+        font-size: clamp(35px, 7vw, 65px);
         position: relative;
         display: inline-block;
+        margin-bottom: clamp(15px, 2vw, 40px);
+        @media screen and (min-width: 481px) and (max-width: 767px) {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
         @extend %line;
-
         &::before {
             content: '';
             position: absolute;
             display: inline-block;
             width: 120%;
             height: 100%;
-            border-bottom: 2px dashed white;
-            left: -10%;
+            border-bottom: 4px dashed white;
+            left: -9%;
         }
-
         &::after {
             content: '';
             position: absolute;
             display: inline-block;
-            width: 45%;
+            width: 50%;
             height: 100%;
-            border-bottom: 2px solid white;
+            border-bottom: 4px solid white;
             left: 27%;
         }
     }
@@ -279,17 +358,21 @@ html {
 /*------------------------footer------------------------*/
 
 .footer {
-    width: 100%;
+    width: 100vw;
     @include flex 
     @include direction(row) 
     @include align (flex-end)
     @include justify (center) 
     &__text {
         color: white;
-        font-size: clamp(12px, 2vw, 18px);
+        font-size: clamp(12px, 2vw, 20px);
         letter-spacing: 0.1rem;
         text-align: center;
+        padding-bottom: 30px;
         @media screen and (min-width: 481px) and (max-width: 767px) {
+            padding-bottom: 0px;
+        }
+        @media screen and (min-width:768px) {
             padding-bottom: 0px;
         }
     }

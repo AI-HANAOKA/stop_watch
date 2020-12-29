@@ -14,40 +14,51 @@
 </head>
 <body>
     <div class="all">
-        <div class="all__top">
-            <header class="header">
-                <h1 class="header__title">
-                    <a href="./index.html" class="header__link">ST<img src="./assets/img/logo.png" alt="時計ロゴ" class="header__logo">P WATCH
-                    </a>
-                </h1>
-                <div class="header__game-title">
-                    <img src="./assets/img/10count.png" alt="10ロゴ" class="header__10Logo">
-                    <div class="header__gameText">
-                        <p class="header__gameCount">COUNT</p>
-                        <p class="header__gameGame">GAME</p>
+        <div class="all__mask">
+            <div class="all__top">
+                <header class="header">
+                    <div class="header__left">
+                        <div class="header__leftL">
+                            <h1 class="header__title">
+                                <a href="./index.html" class="header__link">ST<img src="./assets/img/logo.png" alt="時計ロゴ" class="header__logo">P <br class="sp"><span class="sp__margin">WATCH
+                                </span></a>
+                            </h1>
+                            <div class="header__ruleBox">
+                                <p class="star">☆</p>
+                                <p class="header__rule" id="rule">HOW TO PLAY?</p>
+                                <p class="star">☆</p>
+                            </div>
+                        </div>
+                        <div class="header__leftR">
+                            <h2 class="header__scoraTitle">BEST SCORA</h2>
+                            <div class="header__list">
+                                <ul class="header__listL" id="listL">
+                                    <li class="header__number1" id="num1">00:00.000</li>
+                                    <li class="header__number2" id="num2">00:00.000</li>
+                                    <li class="header__number3" id="num3">00:00.000</li>
+                                </ul>
+                                <ul class="header__listR" id="listR">
+                                    <li class="header__number4" id="num4">00:00.000</li>
+                                    <li class="header__number5" id="num5">00:00.000</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </header>
-            <main class="main">
-                    <section class="count">
-                        <div class="count__timer">
-                            <p class="count--time" id="time">00:00.000</p>
-                        </div>
-                        <div class="count__button">
-                            <div class="count__buttonTop">
-                                <p class="count__start" id="start">START</p>
-                                <p class="count__stop" id="stop">STOP</p>
+                    <img src="./assets/img/10count.png" alt="10ロゴ" class="header__10Logo">
+                </header>
+                <main class="main">
+                        <section class="count">
+                            <div class="count__timer">
+                                <p class="count--time" id="time">00:00.000</p>
                             </div>
-                            <div class="count__buttonBottm">
-                                <p class="count__reset" id="reset">RESET</p>
-                            </div>
-                        </div>
-                    </section>
-            </main>
-            <footer class="footer">
-                <p class="footer__text">© 2020 A.Hanaoka. All rights reserved.
-                </p>
-            </footer>
+                            <p class="count__button" id="button">START</p>
+                        </section>
+                </main>
+                <footer class="footer">
+                    <p class="footer__text">© 2020 A.Hanaoka. All rights reserved.
+                    </p>
+                </footer>
+            </div>
         </div>
     </div>
 
